@@ -1,21 +1,27 @@
-import argparse
-import logging
-from pathlib import Path
+import os
+os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
+from utils.data_loading import BasicDataset
 
 
+def get_dictionaries_list(dir):
+    dict_list = os.listdir(dir)
+    dict = []
+    for item in dict_list:
+        dict.append(os.path.join(dir,item))
+    return dict
 
-dir_img = Path('./data/imgs/') #create a path object
-dir_mask = Path('./data/masks/')
-dir_checkpoint = Path('./checkpoints/')
 
-def train_net(net,
-              device,
-              epochs: int = 10,
-              batch_size: int = 2,
-              learning_rate: float = 1e-5,
-              val_percent: float = 0.1,
-              save_check_point: bool = True,
-              img_scale: float = 0.5,
-              amp: bool = False):
-    # create data set:
+def create_dict(img_list, mask_list):
+    dict = []
+    for img, mask in zip(img_list, mask_list):
+        dict.append({'image': img, 'mask': mask})
+    return dict
+
+
+img_dir = '/Users/mengsiyue/PycharmProjects/train400/images'
+mask_dir_1 = '/Users/mengsiyue/PycharmProjects/train400/masks/cat1'
+
+
+dataset = BasicDataset(img_dir, mask_dir_1)
+
 
