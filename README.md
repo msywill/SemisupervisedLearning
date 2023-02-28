@@ -1,1 +1,1 @@
-# MA_cycleGANs
+# Semi-supervised medical image segmentation
