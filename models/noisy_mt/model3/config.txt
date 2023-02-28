@@ -1,0 +1,2 @@
+### Noisy Mean Teacher ###
+{'learning_rate': 0.001, 'dropout': 0.2, 'channels': (16, 32, 64, 128, 256), 'batch_size': 10, 'alpha': 0.99, 'small_update_alpha': 0.999, 'use beta': True, 'variance_additive_noise': 0.025, 'variance_multiplicative_noise': 0.075, 'split_ratio': '40 - 60', 'startepoch_ssdm': 4, 'ssdm_prune_method': 'prune_by_class', 'ssdm_smoothing_tau': 0.8}
